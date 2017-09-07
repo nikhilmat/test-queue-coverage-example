@@ -32,7 +32,7 @@ us-nmathew1:test-queue-coverage nikhil.mathew$ cat coverage/.resultset.json
   }
 }
 ```
-Even though the test was executed, the forked process did not report (because of using `Kernel#exit!`) and thus we only have coverage on the required code.
+Notice that only the class definition (including constant/method definition) was captured. Even though the test was executed, the forked process did not report (because of using `Kernel#exit!`) and thus we only have coverage on the required code.
 
 ### Ruby's Coverage module and `Kernel#fork`
 As shown above, we need to be able to also report the coverage from each process as a separate SimpleCov profile. However, Ruby's native Coverage module makes the assumption that we want to throw away any coverage collected before the fork so we do not duplicate it (https://bugs.ruby-lang.org/issues/9508#note-22).
